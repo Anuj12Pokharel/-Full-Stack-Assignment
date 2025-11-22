@@ -40,8 +40,11 @@ export const register = async (req: Request, res: Response): Promise<void> => {
 
     // Get token expiration from environment or default to 7 days
     const expiresIn = process.env.JWT_EXPIRES_IN || '7d';
-    const signOptions: SignOptions = { expiresIn };
-    const token = jwt.sign({ userId: user.id }, jwtSecret, signOptions);
+    const token = jwt.sign(
+      { userId: user.id }, 
+      jwtSecret, 
+      { expiresIn: expiresIn as string | number }
+    );
 
     // Return success response with token and user data (excluding password)
     res.status(201).json({
@@ -109,8 +112,11 @@ export const login = async (req: Request, res: Response): Promise<void> => {
 
     // Get token expiration from environment or default to 7 days
     const expiresIn = process.env.JWT_EXPIRES_IN || '7d';
-    const signOptions: SignOptions = { expiresIn };
-    const token = jwt.sign({ userId: user.id }, jwtSecret, signOptions);
+    const token = jwt.sign(
+      { userId: user.id }, 
+      jwtSecret, 
+      { expiresIn: expiresIn as string | number }
+    );
 
     // Return success response with token and user data (excluding password)
     res.json({
