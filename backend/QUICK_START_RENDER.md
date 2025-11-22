@@ -11,6 +11,8 @@
 - Connect your GitHub repo
 - **Root Directory**: `backend`
 - **Build Command**: `npm install && npm run build && npx prisma migrate deploy`
+
+**Important**: Use `npm install` (not `npm ci`) to ensure all dependencies including type definitions are installed.
 - **Start Command**: `npm start`
 
 ### 3. Set Environment Variables

@@ -37,6 +37,8 @@ This guide will help you deploy the Task Manager Backend to Render.
 - **Build Command**: `npm install && npm run build && npx prisma migrate deploy`
 - **Start Command**: `npm start`
 
+**Note**: Make sure `npm install` (not `npm ci`) is used to ensure devDependencies are installed for the build process.
+
 ### Environment Variables
 
 Add these environment variables in the Render dashboard:
