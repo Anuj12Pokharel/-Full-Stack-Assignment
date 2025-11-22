@@ -43,7 +43,7 @@ export const register = async (req: Request, res: Response): Promise<void> => {
     const token = jwt.sign(
       { userId: user.id }, 
       jwtSecret, 
-      { expiresIn: expiresIn as string | number }
+      { expiresIn } as any
     );
 
     // Return success response with token and user data (excluding password)
@@ -115,7 +115,7 @@ export const login = async (req: Request, res: Response): Promise<void> => {
     const token = jwt.sign(
       { userId: user.id }, 
       jwtSecret, 
-      { expiresIn: expiresIn as string | number }
+      { expiresIn } as any
     );
 
     // Return success response with token and user data (excluding password)
