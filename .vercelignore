@@ -12,4 +12,6 @@ build
 coverage
 .nyc_output
 .cache
-
+backend/node_modules
+frontend/node_modules
+api/node_modules
