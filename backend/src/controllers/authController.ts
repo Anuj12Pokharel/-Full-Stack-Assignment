@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { validationResult } from 'express-validator';
-import jwt from 'jsonwebtoken';
+import jwt, { SignOptions } from 'jsonwebtoken';
 import { UserModel } from '../models/User';
 
 /**
@@ -40,7 +40,8 @@ export const register = async (req: Request, res: Response): Promise<void> => {
 
     // Get token expiration from environment or default to 7 days
     const expiresIn = process.env.JWT_EXPIRES_IN || '7d';
-    const token = jwt.sign({ userId: user.id }, jwtSecret, { expiresIn });
+    const signOptions: SignOptions = { expiresIn };
+    const token = jwt.sign({ userId: user.id }, jwtSecret, signOptions);
 
     // Return success response with token and user data (excluding password)
     res.status(201).json({
@@ -108,7 +109,8 @@ export const login = async (req: Request, res: Response): Promise<void> => {
 
     // Get token expiration from environment or default to 7 days
     const expiresIn = process.env.JWT_EXPIRES_IN || '7d';
-    const token = jwt.sign({ userId: user.id }, jwtSecret, { expiresIn });
+    const signOptions: SignOptions = { expiresIn };
+    const token = jwt.sign({ userId: user.id }, jwtSecret, signOptions);
 
     // Return success response with token and user data (excluding password)
     res.json({
