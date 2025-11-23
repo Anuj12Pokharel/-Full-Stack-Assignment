@@ -343,7 +343,7 @@ The application uses JWT (JSON Web Tokens) for authentication. The token is stor
 
 ISC
 
-## 👤 Author
+## 👤 ANUJ POKHAREL
 
 Built as a full-stack assignment demonstrating intermediate-level development capabilities.
 
